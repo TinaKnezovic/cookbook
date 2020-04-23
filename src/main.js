@@ -1,12 +1,47 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Comment from './Comment.js';
 
 class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          name:'',
+          comment:'',
+        };
+    this.handleName = this.handleName.bind(this);
+    this.handleComment = this.handleComment.bind(this);
+    }
+
     static propTypes = {
         filteredPosts: PropTypes.array,
     };
 
-   
+    handleName(event) {
+        this.setState({ name: event.target.value });
+        }
+
+    handleComment(event) {
+        this.setState({ comment: event.target.value });
+        }
+    
+
+    postComment(postId,name,comment,commentNumber){
+        fetch(`http://localhost:3000/recipes/${postId}/comments`, {
+            method:"post",
+            body:JSON.stringify({
+            id: commentNumber+1,
+            name: name,
+            text: comment,
+        })
+        }).then(resp => {
+            console.log("success");
+        }).catch(error => {
+            console.log("error");
+        });  
+    }
+
+
     render() {
         return (
             <div className="main">
@@ -43,27 +78,20 @@ class Main extends React.Component {
                     <h4 align="left">Comments:</h4>
                     {post.comments.map((comment) => {
                         return (
-                        <div className="Comment">
-                            <div className="user_date">
-                            {" "}
-                            <img src={require("./user.png")} /> {comment.user},{" "}
-                            {comment.date}{" "}
-                            </div>
-                            <div className="comment_text"> {comment.text} </div>
-                        </div>
+                        <Comment comment={comment}/>
                         );
                     })}
                     <div className="Comment">
                         <div className="comment-form">
                         <div className="input-group">
                             <span>Name: </span>
-                            <input type="text" placeholder="Your name" />
+                            <input type="text" placeholder="Your name" value={this.state.name} onChange={this.handleName}/>
                         </div>
                         <div className="input-group">
                             <span>Comment: </span>
-                            <input type="text" placeholder="Say something..." />
+                            <input type="text" placeholder="Say something..." value={this.state.comment} onChange={this.handleComment}/>
                         </div>
-                        <button type="submit"> Post comment </button>
+                        <button type="submit" onClick={this.postComment(post.id,this.state.name, this.state.comment, post.comments.length)}> Post comment </button>
                         </div>
                     </div>
                     </div>

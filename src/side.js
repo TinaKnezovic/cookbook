@@ -12,7 +12,7 @@ class Side extends React.Component {
             </p>
             <div className="imgSide">
               {" "}
-              <img src={require("./pic_side.jpg")} />{" "}
+              <img src={require("./images/pic_side.jpg")} />{" "}
             </div>
 
             <div className="signInForm">

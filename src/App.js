@@ -2,10 +2,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import "./App.css";
-import Header from "./header.js";
-import Side from "./side.js";
-import Main from "./main.js";
-import Footer from "./footer.js";
+import Header from "./Header.js";
+import Side from "./Side.js";
+import Main from "./Main.js";
+import Footer from "./Footer.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -35,8 +35,7 @@ class App extends React.Component {
     fetch("http://localhost:3000/recipes")
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ posts: data });
-        this.setState({filteredPosts:data});
+        this.setState({post:data, filteredPosts:data});
       });
   }
 

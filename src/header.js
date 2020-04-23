@@ -25,7 +25,7 @@ class Header extends React.Component {
         return (
             <div className="header">
             <div className="headerImg">
-                <img src={require("./header.jpg")} alt="header_pic" />
+                <img src={require("./images/header.jpg")} alt="header_pic" />
             </div>
             <div className="searchbox">
                 <input
