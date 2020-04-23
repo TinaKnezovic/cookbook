@@ -1,0 +1,390 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "author": "Marko",
+      "date": "2020-04-15T00:00:00.000Z",
+      "name": "Pasta napolitana",
+      "image": "pasta_napolitana.jpg",
+      "preparation_difficulty": "easy",
+      "preparation_time": 30,
+      "servings": 4,
+      "ingredients": [
+        "2 tablespoons olive oil",
+        "1 onion, finely chopped",
+        "1 carrot, finely chopped",
+        "1 celery stalk, finely chopped",
+        "500 g (1 lb 2 oz) very ripe tomatoes, chopped",
+        "2 tablespoons chopped parsley",
+        "2 teaspoons sugar",
+        "500 g (1 lb 2 oz) pasta"
+      ],
+      "preparation_steps": [
+        "Heat the oil in a heavy-based saucepan. Add the onion, carrot and celery. Cover and cook for 10 minutes over low heat, stirring occasionally.",
+        "Add the tomato to the pan with the parsley, sugar and 125 ml (4 fl oz/½ cup) water. Bring to the boil, reduce the heat to low, cover and simmer for 45 minutes, stirring occasionally. Season to taste. If necessary, add up to 185 ml (6 fl oz/¾ cup) more water if the sauce needs thinning.",
+        "Cook the pasta in a large saucepan of rapidly boiling salted water until al dente. Drain well and return to the pan. Toss gently with the sauce."
+      ],
+      "dish_type": "main",
+      "tags": [
+        "vegetarian",
+        "italian"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Dalibor",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "Great recipe!"
+        },
+        {
+          "id": 2,
+          "user": "Tina",
+          "date": "2020-04-17T00:00:00.000Z",
+          "text": "Nothing special."
+        }
+      ]
+    },
+	
+	
+	{
+      "id": 2,
+      "author": "Tina",
+      "date": "2020-01-15T00:00:00.000Z",
+      "name": "Cheesecake",
+      "image": "cheesecake.jpg",
+      "preparation_difficulty": "easy",
+      "preparation_time": 30,
+      "servings": 6,
+      "ingredients": [
+        "Graham Cracker Crumbs",
+        "Granulated Sugar",
+        "Melted Butter",
+        "Cream Cheese",
+        "Sour Cream",
+        "Vanilla Extract",
+        "Eggs"
+      ],
+      "preparation_steps": [
+        "Start by making the graham cracker crust: stir graham cracker crumbs, sugar and melted butter together and press into a 9-inch springform pan. Bake for 7 minutes in a 350 degree oven. Set aside to cool.",
+        "Make the cheesecake filling by stirring the very soft cream cheese together with the granulated sugar. Stir in the vanilla and sour cream. Scrape the sides really really well and stir again to ensure there are no lumps. Whisk eggs together in a separate bowl and slowly add to the cheesecake filling with the mixer on. Once eggs are incorporated turn mixer off. Scrape the sides really well to ensure a very smooth batter. If there are lumps, stir them in by hand.",
+	    	"Tap bowl on the counter for 30-45 seconds to remove air bubbles. Pour batter into graham cracker crust, smooth the top and bake. Bake at 325 degrees, reduce heat to 250 to finish cooking.",
+	    	"Let cheesecake sit in the hot oven with the oven closed for 30 minutes before cracking the door and letting it continue cooling for another hour. Remove from oven and bring cheesecake to room temperature.",
+	    	"Cover and refrigerate until completely chilled. Serve."
+      ],
+      "dish_type": "dessert",
+      "tags": [
+        "cheese"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Laurie",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "Recommend!"
+        }
+      ]
+    },
+	
+	{
+	  "id": 3,
+      "author": "Jill Dupleix",
+      "date": "2020-03-13T00:00:00.000Z",
+      "name": "Chicken parmigiana",
+      "image": "chicken_parmigiana.jpg",
+      "preparation_difficulty": "medium",
+      "preparation_time": 30,
+      "servings": 4,
+      "ingredients": [
+        "400g canned tomatoes, chopped, or tomato passata",
+        "100ml white wine or water",
+        "2 garlic cloves, finely sliced",
+        "2 tbsp olive oil",
+        "4 sprigs fresh oregano (or ½ tsp dried)",
+        "1 tsp sugar",
+        "salt and pepper",
+        "4 chicken breasts, skinned",
+        "1 tbsp grated parmesan",
+        "4 tbsp plain flour",
+        "Sea salt and pepper",
+        "2 eggs, beaten",
+        "100g coarse dried breadcrumbs, like ciabatta",
+        "olive oil for frying",
+        "200g green beans, tops trimmed",
+        "2 fresh mozzarella balls, sliced"
+      ],
+      "preparation_steps": [
+        "Combine the tomatoes, wine, garlic, olive oil, oregano, sugar, salt and pepper in a saucepan and simmer, stirring occasionally, for 20 minutes until thick.",
+        "Heat the oven to 180C. Pound the chicken flat and cut in two if large. Mix the parmesan, flour, salt and pepper. Coat the chicken with the flour, then egg and finally the crumbs.",
+        "Heat 1 tbsp olive oil in a frying pan and fry the chicken on both sides until golden, adding extra oil as you cook the remaining chicken. Cook the beans in simmering salted water for four minutes, drain and toss in a little olive oil.",
+        "Place chicken on serving plates and top with tomato sauce and mozzarella. Scatter with grated parmesan and place in the oven for two to three minutes until the cheese melts. When serving, warn everyone the plates are hot."
+       ],
+      "dish_type": "main",
+      "tags": [
+        "chicken", "tomato", "mozzarella"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Annie",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I tried this!"
+        },
+		{
+          "id": 2,
+          "user": "Laura",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I will make this again! Its so good"
+        },
+		{
+          "id": 3,
+          "user": "Mark",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "Its too seasoned!"
+        }
+      ]
+    },
+	
+	{
+	  "id": 4,
+      "author": "TinaK",
+      "date": "2020-04-13T00:00:00.000Z",
+      "name": "Asparagus soup",
+      "image": "asparagus_soup.jpg",
+      "preparation_difficulty": "easy",
+      "preparation_time": 60,
+      "servings": 4,
+      "ingredients": [
+        "750 g (1 lb 10 oz) asparagus spears",
+        "1 litre (35 fl oz/4 cups) vegetable stock",
+        "30 g (1 oz) butter",
+        "1 tablespoon plain (all-purpose) flour",
+        "1/2 teaspoon finely grated lemon zest, plus extra, to garnish"
+       ],
+      "preparation_steps": [
+        "Trim off any woody ends from the asparagus and cut the spears into 2 cm (3/4 inch) lengths. Place in a large saucepan and pour in 500 ml (17 fl oz/2 cups) of the stock. Cover and bring to the boil, then reduce the heat and simmer for 10 minutes, or until the asparagus is tender.",
+        "Working in batches, transfer the asparagus and the hot stock to a blender or food processor and purée until smooth. Set aside.",
+        "Wipe out the saucepan, then add the butter and melt over low heat. Add the flour and stir for 1 minute, or until pale and foaming. Remove from the heat and gradually add all the remaining stock, stirring constantly until smooth.",
+        "Return the saucepan to the heat, bring to the boil, then simmer for 2 minutes.",
+        "Stir in the asparagus purée and gently reheat. Stir in the lemon zest and season to taste with sea salt and freshly ground black pepper. Serve garnished with a little extra lemon zest. "
+      ],
+      "dish_type": "appetizers",
+      "tags": [
+        "asparagus", "soup", "vegetarian"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Maurice",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I tried this!"
+        },
+		{
+          "id": 2,
+          "user": "Doug",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I will make this again! Its so good"
+        }
+      ]
+  },
+	
+	
+	{
+	  "id": 5,
+      "author": "Alexander Steph",
+      "date": "2020-04-13T00:00:00.000Z",
+      "name": "Sorrel soup",
+      "image": "sorrel_soup.jpg",
+      "preparation_difficulty": "medium",
+      "preparation_time": 30,
+      "servings": 4,
+      "ingredients": [
+		"2 slices sourdough or substantial bread, crusts removed",
+		"olive oil",
+		"2 tsp butter",
+		"2 cloves garlic, thinly sliced",
+		"120g fresh sorrel leaves, torn",
+		"1 tsp salt",
+		"freshly ground black pepper",
+		"1 litre chicken or vegetable stock",
+		"3 egg yolks"
+      ],
+      "preparation_steps": [
+        "Preheat oven to 140C. Cut bread into 1cm dice.Heat 2 tbsp oil in a frying pan, then fry bread until golden on all sides. Drain croutons on kitchen paper and transfer to oven to keep warm until needed.",
+        "Heat butter and 2 tsp oil in a non-reactive saucepan and gently fry garlic until pale gold.Add sorrel and then salt and pepper, stirring to wilt sorrel evenly. Add stock and bring to simmering point, then lower heat and cook for 10 minutes. Puree until smooth in a blender or food processor. Strain soup back into saucepan, check seasoning and heat to shivering point (just below a simmer).",
+        "In a large, warmed bowl, beat egg yolks until creamy and light. Remove soup from heat for a few minutes. Whisk a ladle of the hot soup into the egg yolks for 1 minute, then tip egg mixture back into soup pot and whisk until lightly thickened and velvety. Serve at once with croutons."
+      ],
+      "dish_type": "appetizers",
+      "tags": [
+        "sorrel", "soup", "vegetarian"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Maria",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I tried this!"
+        },
+		{
+          "id": 2,
+          "user": "Lukas",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I will make this again! Its so good"
+        }
+      ]
+  },
+	
+	
+	{
+	  "id": 6,
+      "author": "Alexander Steph",
+      "date": "2020-04-15T00:00:00.000Z",
+      "name": "Chocolate macaroons",
+      "image": "chocolate_macaroons.jpg",
+      "preparation_difficulty": "medium",
+      "preparation_time": 60,
+      "servings": 16,
+      "ingredients": [
+        "1/2 cup ground almonds, sifted",
+        "1 cup pure icing sugar, sifted",
+        "4 tbsp Dutch-style cocoa, sifted",
+        "2 eggwhites",
+        "1/4 tsp cream of tartar",
+        "75g dark couverture chocolate",
+        "1 tsp butter",
+        "4 tbsp cream"
+      ],
+      "preparation_steps": [
+        "Prepare 2 baking sheets lined with baking paper. Mix the sifted ingredients together in a bowl and set aside.",
+        "Beat the eggwhites with the cream of tartar to snowy peaks. Fold a spoonful of the eggwhites into the sifted mixture to blend and then fold in the rest of the eggwhites quickly but with a light hand.Spoon teaspoonfuls of the mixture onto the paper-lined trays, leaving 3cm between blobs. Do this as quickly as possible and place trays immediately into the preheated oven. Cook for 8 minutes or until the macaroons feel firm on the outside.",
+        "Wet a teatowel with cold water, wring out and place on the bench. Remove trays from oven and place on the damp cloth for a few minutes. With a spatula slide the macaroons onto a cooling rack. Allow to cool completely before filling. If not needed immediately, store unfilled macaroons in an airtight container.",
+        "Break chocolate into small pieces and pulverise in the food processor to a powder. Bring cream and butter to the boil in a pan. With motor running pour the boiling cream mixture onto the chocolate in a steady stream. Process until smooth. Refrigerate until just cold and then beat in an electric mixer until soft peaks form. Use straight away.",
+        "Excess ganache will become too stiff to spread. Allow it to return to room temperature and then rebeat for a few minutes to regain spreadable consistency."
+        ],
+      "dish_type": "dessert",
+      "tags": [
+        "chocolate", "macaroons"
+      ],
+      "comments": [
+  
+		{
+          "id": 1,
+          "user": "Lukas",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I will make this again! Its so good"
+        }
+      ]
+  },
+	
+	
+	{
+	  "id": 7,
+      "author": "TinaK",
+      "date": "2020-03-13T00:00:00.000Z",
+      "name": "Lamb pilaff",
+      "image": "lamb_pilaff.jpg",
+      "preparation_difficulty": "medium",
+      "preparation_time": 120,
+      "servings": 4,
+      "ingredients": [
+        "1 large eggplant (aubergine), cut into",
+        "1 cm (½ inch) cubes",
+        "125 ml (4 fl oz/½ cup) olive oil",
+        "1 large onion, finely chopped",
+        "1 teaspoon ground cumin",
+        "300 g (10½ oz/1½ cups) long-grain white rice",
+        "500 ml (17 fl oz/2 cups) chicken or vegetable stock",
+        "2 tomatoes, cut into wedges",
+        "3 tablespoons toasted pistachios",
+        "2 tablespoons currants",
+        "2 tablespoons chopped coriander (cilantro)",
+        "500 g (1 lb 2 oz) minced (ground) lamb",
+        "½ teaspoon ground allspice",
+        "1 teaspoon ground cumin",
+        "2 tablespoons olive oil"
+      ],
+      "preparation_steps": [
+        "Put the eggplant in a colander, sprinkle with salt and leave for 1 hour. Rinse, drain well, then pat dry with paper towels.",
+        "Heat 2 tablespoons of the olive oil in a large, deep, frying pan, add the eggplant and cook over medium heat for 10 minutes. Remove and drain on paper towels.",
+        "Heat the remaining olive oil in the pan, add the onion and sauté for 5 minutes, or until softened. Stir in the ground spices, then add the rice and stir to coat. Pour in the stock, season with sea salt and freshly ground black pepper and bring to the boil. Reduce the heat and simmer, covered, for 15 minutes.",
+        "Meanwhile, make the meatballs. Put the lamb in a bowl with the ground spices. Season with sea salt and freshly ground black pepper and mix well. Roll the mixture into small balls the size of walnuts.",
+        "Heat the olive oil in a frying pan and cook the meatballs in batches over medium heat for 5 minutes, turning often to brown all over. Drain on paper towels.",
+        "Add the tomato wedges to the frying pan and cook for 3–5 minutes, or until softened.",
+        "Stir the eggplant, pistachios, currants and meatballs through the rice. Serve the pilaff with the tomato wedges, sprinkled with the coriander."
+      ],
+      "dish_type": "main",
+      "tags": [
+        "lamb", "main"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Annie",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I tried this!"
+        },
+		{
+          "id": 2,
+          "user": "Laura",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I will make this again! Its so good"
+        },
+		{
+          "id": 3,
+          "user": "Mark",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "Its too seasoned!"
+        }
+      ]
+    },
+	
+	
+	{
+	  "id": 8,
+      "author": "TinaK",
+      "date": "2020-04-10T00:00:00.000Z",
+      "name": "Seafood pasta",
+      "image": "seafood_pasta.jpg",
+      "preparation_difficulty": "medium",
+      "preparation_time": 60,
+      "servings": 4,
+      "ingredients": [
+        "12 black mussels, scrubbed clean and beards removed",
+        "125 ml (4 fl oz/½ cup) white wine",
+        "1 tsp olive oil",
+        "1 large onion, chopped",
+        "3 cloves garlic, finely chopped",
+        "2 × 400 g (14 oz) tins chopped tomatoes",
+        "2 tbs tomato paste (purée)",
+        "1 tsp dried oregano",
+        "500 g (1 lb 2 oz) bucatini or spaghetti",
+        "8 raw prawns (shrimp), peeled and deveined, tails intact",
+        "300 g (10½ oz) fresh or frozen seafood marinara mixture",
+        "1 large handful basil, shredded"
+      ],
+      "preparation_steps": [
+        "Discard any opened mussels. Place the mussels in a large saucepan with the wine and 125 ml (4 fl oz/½ cup) water. Cook, covered, for 3 minutes, or until the mussels have opened. Discard any unopened ones. Remove the mussels and reserve the liquid.",
+        "Heat the oil in a large saucepan, add the onion and garlic and cook for 2–3 minutes, or until softened. Add the tomatoes, tomato paste and oregano leaves. Stir in the reserved mussel cooking juice. Bring to the boil, then simmer for 20 minutes, or until reduced and thickened a little.",
+        "Meanwhile, cook the pasta in a large saucepan of boiling salted water for 10 minutes, or until just tender. Drain.",
+        "Add the prawns and marinara mixture to the sauce. Cook over a low heat for 3 minutes, or until the seafood is cooked. Toss the sauce, mussels and basil through the pasta. Serve immediately."
+      ],
+      "dish_type": "main",
+      "tags": [
+        "fish", "seafood","pasta","shrimps"
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user": "Annie",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I loovee this!"
+        },
+		{
+          "id": 3,
+          "user": "Marcus",
+          "date": "2020-04-16T00:00:00.000Z",
+          "text": "I enjoyed!"
+        }
+      ]
+    }
+  ]
+}
