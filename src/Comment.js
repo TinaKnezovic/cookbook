@@ -6,14 +6,15 @@ class Comment extends React.Component {
         comment: PropTypes.object,
     };    
     render() {
+        const { user, date, text } = this.props.comment; 
         return (
             <div className="Comment">
                             <div className="user_date">
                             {" "}
-                            <img src={require("./images/user.png")} /> {this.props.comment.user},{" "}
-                            {this.props.comment.date}{" "}
+                            <img src={require("./images/user.png")} /> {user},{" "}
+                            {date}{" "}
                             </div>
-                            <div className="comment_text"> {this.props.comment.text} </div>
+                            <div className="comment_text"> {text} </div>
                         </div>
 
         )}

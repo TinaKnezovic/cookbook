@@ -15,6 +15,7 @@ class App extends React.Component {
       filteredPosts: [],
       src: "",
       search:"",
+      comments:[],
     };
     
     this.handleSearch = this.handleSearch.bind(this);
@@ -32,21 +33,25 @@ class App extends React.Component {
   }
 
   fetchReceipe() {
-    fetch("http://localhost:3000/recipes")
+    fetch("http://localhost:3000/db")
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({post:data, filteredPosts:data});
+        this.setState({ posts: data.recipes });
+        this.setState({filteredPosts:data.recipes});
+        this.setState({comments: data.comments});
       });
   }
 
   handleSearch() {
     const filterString = this.state.search;
+    console.log(filterString);
     const filteredPosts = this.state.posts.filter(
       (post) =>
         post.name.toLowerCase().includes(filterString) ||
         post.tags.includes(filterString)
     );
     this.setState({ filteredPosts });
+    console.log(filteredPosts);
   }
 
   handleCategory(event){
@@ -73,7 +78,7 @@ class App extends React.Component {
 
         <div className="row"> 
           <Side/>
-          <Main filteredPosts={this.state.filteredPosts}/> 
+          <Main filteredPosts={this.state.filteredPosts} comments={this.state.comments}/> 
         </div>
         <Footer/>
       </div>

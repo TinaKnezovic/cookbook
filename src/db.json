@@ -28,25 +28,9 @@
       "tags": [
         "vegetarian",
         "italian"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Dalibor",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "Great recipe!"
-        },
-        {
-          "id": 2,
-          "user": "Tina",
-          "date": "2020-04-17T00:00:00.000Z",
-          "text": "Nothing special."
-        }
       ]
     },
-	
-	
-	{
+    {
       "id": 2,
       "author": "Tina",
       "date": "2020-01-15T00:00:00.000Z",
@@ -67,26 +51,17 @@
       "preparation_steps": [
         "Start by making the graham cracker crust: stir graham cracker crumbs, sugar and melted butter together and press into a 9-inch springform pan. Bake for 7 minutes in a 350 degree oven. Set aside to cool.",
         "Make the cheesecake filling by stirring the very soft cream cheese together with the granulated sugar. Stir in the vanilla and sour cream. Scrape the sides really really well and stir again to ensure there are no lumps. Whisk eggs together in a separate bowl and slowly add to the cheesecake filling with the mixer on. Once eggs are incorporated turn mixer off. Scrape the sides really well to ensure a very smooth batter. If there are lumps, stir them in by hand.",
-	    	"Tap bowl on the counter for 30-45 seconds to remove air bubbles. Pour batter into graham cracker crust, smooth the top and bake. Bake at 325 degrees, reduce heat to 250 to finish cooking.",
-	    	"Let cheesecake sit in the hot oven with the oven closed for 30 minutes before cracking the door and letting it continue cooling for another hour. Remove from oven and bring cheesecake to room temperature.",
-	    	"Cover and refrigerate until completely chilled. Serve."
+        "Tap bowl on the counter for 30-45 seconds to remove air bubbles. Pour batter into graham cracker crust, smooth the top and bake. Bake at 325 degrees, reduce heat to 250 to finish cooking.",
+        "Let cheesecake sit in the hot oven with the oven closed for 30 minutes before cracking the door and letting it continue cooling for another hour. Remove from oven and bring cheesecake to room temperature.",
+        "Cover and refrigerate until completely chilled. Serve."
       ],
       "dish_type": "dessert",
       "tags": [
         "cheese"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Laurie",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "Recommend!"
-        }
       ]
     },
-	
-	{
-	  "id": 3,
+    {
+      "id": 3,
       "author": "Jill Dupleix",
       "date": "2020-03-13T00:00:00.000Z",
       "name": "Chicken parmigiana",
@@ -117,35 +92,16 @@
         "Heat the oven to 180C. Pound the chicken flat and cut in two if large. Mix the parmesan, flour, salt and pepper. Coat the chicken with the flour, then egg and finally the crumbs.",
         "Heat 1 tbsp olive oil in a frying pan and fry the chicken on both sides until golden, adding extra oil as you cook the remaining chicken. Cook the beans in simmering salted water for four minutes, drain and toss in a little olive oil.",
         "Place chicken on serving plates and top with tomato sauce and mozzarella. Scatter with grated parmesan and place in the oven for two to three minutes until the cheese melts. When serving, warn everyone the plates are hot."
-       ],
+      ],
       "dish_type": "main",
       "tags": [
-        "chicken", "tomato", "mozzarella"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Annie",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I tried this!"
-        },
-		{
-          "id": 2,
-          "user": "Laura",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I will make this again! Its so good"
-        },
-		{
-          "id": 3,
-          "user": "Mark",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "Its too seasoned!"
-        }
+        "chicken",
+        "tomato",
+        "mozzarella"
       ]
     },
-	
-	{
-	  "id": 4,
+    {
+      "id": 4,
       "author": "TinaK",
       "date": "2020-04-13T00:00:00.000Z",
       "name": "Asparagus soup",
@@ -159,7 +115,7 @@
         "30 g (1 oz) butter",
         "1 tablespoon plain (all-purpose) flour",
         "1/2 teaspoon finely grated lemon zest, plus extra, to garnish"
-       ],
+      ],
       "preparation_steps": [
         "Trim off any woody ends from the asparagus and cut the spears into 2 cm (3/4 inch) lengths. Place in a large saucepan and pour in 500 ml (17 fl oz/2 cups) of the stock. Cover and bring to the boil, then reduce the heat and simmer for 10 minutes, or until the asparagus is tender.",
         "Working in batches, transfer the asparagus and the hot stock to a blender or food processor and purée until smooth. Set aside.",
@@ -169,27 +125,13 @@
       ],
       "dish_type": "appetizers",
       "tags": [
-        "asparagus", "soup", "vegetarian"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Maurice",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I tried this!"
-        },
-		{
-          "id": 2,
-          "user": "Doug",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I will make this again! Its so good"
-        }
+        "asparagus",
+        "soup",
+        "vegetarian"
       ]
-  },
-	
-	
-	{
-	  "id": 5,
+    },
+    {
+      "id": 5,
       "author": "Alexander Steph",
       "date": "2020-04-13T00:00:00.000Z",
       "name": "Sorrel soup",
@@ -198,15 +140,15 @@
       "preparation_time": 30,
       "servings": 4,
       "ingredients": [
-		"2 slices sourdough or substantial bread, crusts removed",
-		"olive oil",
-		"2 tsp butter",
-		"2 cloves garlic, thinly sliced",
-		"120g fresh sorrel leaves, torn",
-		"1 tsp salt",
-		"freshly ground black pepper",
-		"1 litre chicken or vegetable stock",
-		"3 egg yolks"
+        "2 slices sourdough or substantial bread, crusts removed",
+        "olive oil",
+        "2 tsp butter",
+        "2 cloves garlic, thinly sliced",
+        "120g fresh sorrel leaves, torn",
+        "1 tsp salt",
+        "freshly ground black pepper",
+        "1 litre chicken or vegetable stock",
+        "3 egg yolks"
       ],
       "preparation_steps": [
         "Preheat oven to 140C. Cut bread into 1cm dice.Heat 2 tbsp oil in a frying pan, then fry bread until golden on all sides. Drain croutons on kitchen paper and transfer to oven to keep warm until needed.",
@@ -215,27 +157,13 @@
       ],
       "dish_type": "appetizers",
       "tags": [
-        "sorrel", "soup", "vegetarian"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Maria",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I tried this!"
-        },
-		{
-          "id": 2,
-          "user": "Lukas",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I will make this again! Its so good"
-        }
+        "sorrel",
+        "soup",
+        "vegetarian"
       ]
-  },
-	
-	
-	{
-	  "id": 6,
+    },
+    {
+      "id": 6,
       "author": "Alexander Steph",
       "date": "2020-04-15T00:00:00.000Z",
       "name": "Chocolate macaroons",
@@ -259,25 +187,15 @@
         "Wet a teatowel with cold water, wring out and place on the bench. Remove trays from oven and place on the damp cloth for a few minutes. With a spatula slide the macaroons onto a cooling rack. Allow to cool completely before filling. If not needed immediately, store unfilled macaroons in an airtight container.",
         "Break chocolate into small pieces and pulverise in the food processor to a powder. Bring cream and butter to the boil in a pan. With motor running pour the boiling cream mixture onto the chocolate in a steady stream. Process until smooth. Refrigerate until just cold and then beat in an electric mixer until soft peaks form. Use straight away.",
         "Excess ganache will become too stiff to spread. Allow it to return to room temperature and then rebeat for a few minutes to regain spreadable consistency."
-        ],
+      ],
       "dish_type": "dessert",
       "tags": [
-        "chocolate", "macaroons"
-      ],
-      "comments": [
-  
-		{
-          "id": 1,
-          "user": "Lukas",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I will make this again! Its so good"
-        }
+        "chocolate",
+        "macaroons"
       ]
-  },
-	
-	
-	{
-	  "id": 7,
+    },
+    {
+      "id": 7,
       "author": "TinaK",
       "date": "2020-03-13T00:00:00.000Z",
       "name": "Lamb pilaff",
@@ -313,33 +231,12 @@
       ],
       "dish_type": "main",
       "tags": [
-        "lamb", "main"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Annie",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I tried this!"
-        },
-		{
-          "id": 2,
-          "user": "Laura",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I will make this again! Its so good"
-        },
-		{
-          "id": 3,
-          "user": "Mark",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "Its too seasoned!"
-        }
+        "lamb",
+        "main"
       ]
     },
-	
-	
-	{
-	  "id": 8,
+    {
+      "id": 8,
       "author": "TinaK",
       "date": "2020-04-10T00:00:00.000Z",
       "name": "Seafood pasta",
@@ -369,22 +266,244 @@
       ],
       "dish_type": "main",
       "tags": [
-        "fish", "seafood","pasta","shrimps"
-      ],
-      "comments": [
-        {
-          "id": 1,
-          "user": "Annie",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I loovee this!"
-        },
-		{
-          "id": 3,
-          "user": "Marcus",
-          "date": "2020-04-16T00:00:00.000Z",
-          "text": "I enjoyed!"
-        }
+        "fish",
+        "seafood",
+        "pasta",
+        "shrimps"
       ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "user": "Dalibor",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "Great recipe!",
+      "recipeId": 1
+    },
+    {
+      "id": 2,
+      "user": "Tina",
+      "date": "2020-04-17T00:00:00.000Z",
+      "text": "Nothing special.",
+      "recipeId": 1
+    },
+    {
+      "id": 3,
+      "user": "Laurie",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "Recommend!",
+      "recipeId": 2
+    },
+    {
+      "id": 4,
+      "user": "Annie",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I tried this!",
+      "recipeId": 3
+    },
+    {
+      "id": 5,
+      "user": "Laura",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I will make this again! Its so good",
+      "recipeId": 3
+    },
+    {
+      "id": 6,
+      "user": "Mark",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "Its too seasoned!",
+      "recipeId": 3
+    },
+    {
+      "id": 7,
+      "user": "Maurice",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I tried this!",
+      "recipeId": 4
+    },
+    {
+      "id": 8,
+      "user": "Doug",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I will make this again! Its so good",
+      "recipeId": 4
+    },
+    {
+      "id": 9,
+      "user": "Maria",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I tried this!",
+      "recipeId": 5
+    },
+    {
+      "id": 10,
+      "user": "Lukas",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I will make this again! Its so good",
+      "recipeId": 5
+    },
+    {
+      "id": 11,
+      "user": "Lukas",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I will make this again! Its so good",
+      "recipeId": 6
+    },
+    {
+      "id": 12,
+      "user": "Annie",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I tried this!",
+      "recipeId": 7
+    },
+    {
+      "id": 13,
+      "user": "Laura",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I will make this again! Its so good",
+      "recipeId": 7
+    },
+    {
+      "id": 14,
+      "user": "Mark",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "Its too seasoned!",
+      "recipeId": 7
+    },
+    {
+      "id": 1,
+      "user": "Annie",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I loovee this!",
+      "recipeId": 8
+    },
+    {
+      "id": 3,
+      "user": "Marcus",
+      "date": "2020-04-16T00:00:00.000Z",
+      "text": "I enjoyed!",
+      "recipeId": 8
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "1",
+      "id": 15
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "1",
+      "id": 16
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "1",
+      "id": 17
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "1",
+      "id": 18
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "2",
+      "id": 19
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "2",
+      "id": 20
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "3",
+      "id": 21
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "3",
+      "id": 22
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "4",
+      "id": 23
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "4",
+      "id": 24
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "5",
+      "id": 25
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "5",
+      "id": 26
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "6",
+      "id": 27
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "6",
+      "id": 28
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "7",
+      "id": 29
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "7",
+      "id": 30
+    },
+    {
+      "user": "",
+      "date": " 09:16:45 pm",
+      "text": "",
+      "recipeId": "8",
+      "id": 31
     }
   ]
 }
