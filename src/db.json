@@ -277,233 +277,142 @@
     {
       "id": 1,
       "user": "Dalibor",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "Great recipe!",
       "recipeId": 1
     },
     {
       "id": 2,
       "user": "Tina",
-      "date": "2020-04-17T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "Nothing special.",
       "recipeId": 1
     },
     {
       "id": 3,
       "user": "Laurie",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "Recommend!",
       "recipeId": 2
     },
     {
       "id": 4,
       "user": "Annie",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I tried this!",
       "recipeId": 3
     },
     {
       "id": 5,
       "user": "Laura",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I will make this again! Its so good",
       "recipeId": 3
     },
     {
       "id": 6,
       "user": "Mark",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "Its too seasoned!",
       "recipeId": 3
     },
     {
       "id": 7,
       "user": "Maurice",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I tried this!",
       "recipeId": 4
     },
     {
       "id": 8,
       "user": "Doug",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I will make this again! Its so good",
       "recipeId": 4
     },
     {
       "id": 9,
       "user": "Maria",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I tried this!",
       "recipeId": 5
     },
     {
       "id": 10,
       "user": "Lukas",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I will make this again! Its so good",
       "recipeId": 5
     },
     {
       "id": 11,
       "user": "Lukas",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I will make this again! Its so good",
       "recipeId": 6
     },
     {
       "id": 12,
       "user": "Annie",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I tried this!",
       "recipeId": 7
     },
     {
       "id": 13,
       "user": "Laura",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "I will make this again! Its so good",
       "recipeId": 7
     },
     {
       "id": 14,
       "user": "Mark",
-      "date": "2020-04-16T00:00:00.000Z",
+      "date": "2020-04-16T14:30:20+02:00",
       "text": "Its too seasoned!",
       "recipeId": 7
     },
     {
-      "id": 1,
-      "user": "Annie",
-      "date": "2020-04-16T00:00:00.000Z",
-      "text": "I loovee this!",
-      "recipeId": 8
-    },
-    {
-      "id": 3,
-      "user": "Marcus",
-      "date": "2020-04-16T00:00:00.000Z",
-      "text": "I enjoyed!",
-      "recipeId": 8
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "1",
+      "user": "Marko",
+      "date": "2020-04-29T17:20:19+02:00",
+      "text": "Test",
+      "recipeId": 1,
       "id": 15
     },
     {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "1",
+      "user": "Dado",
+      "date": "2020-04-29T18:09:40+02:00",
+      "text": "Jeeeej",
+      "recipeId": 1,
       "id": 16
     },
     {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "1",
+      "user": "Marko",
+      "date": "2020-04-29T19:30:00+02:00",
+      "text": "Test",
+      "recipeId": 2,
       "id": 17
     },
     {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "1",
+      "user": "Ivan",
+      "date": "2020-04-29T19:32:52+02:00",
+      "text": "Jeeeej",
+      "recipeId": 2,
       "id": 18
     },
     {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "2",
+      "user": "Tina",
+      "date": "2020-04-29T19:37:20+02:00",
+      "text": "Super",
+      "recipeId": 2,
       "id": 19
     },
     {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "2",
+      "user": "Dalibor",
+      "date": "2020-04-29T22:05:53+02:00",
+      "text": "Great!",
+      "recipeId": 2,
       "id": 20
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "3",
-      "id": 21
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "3",
-      "id": 22
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "4",
-      "id": 23
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "4",
-      "id": 24
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "5",
-      "id": 25
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "5",
-      "id": 26
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "6",
-      "id": 27
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "6",
-      "id": 28
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "7",
-      "id": 29
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "7",
-      "id": 30
-    },
-    {
-      "user": "",
-      "date": " 09:16:45 pm",
-      "text": "",
-      "recipeId": "8",
-      "id": 31
     }
   ]
 }
