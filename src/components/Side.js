@@ -12,23 +12,9 @@ class Side extends React.Component {
         <div className="imgSide">
           <img src={require('../images/pic_side.jpg')} alt="" />
         </div>
-        <div className="signInForm">
-          <h2 className="signInText">Sign in:</h2>
-          Email:{' '}
-          <input
-            name="name"
-            type="text"
-            placeholder="Enter email.."
-          ></input>{' '}
-          <br />
-          Password:{' '}
-          <input
-            name="summary"
-            type="password"
-            placeholder="Enter password.."
-          ></input>
-          <br />
-          <button className="singInButton">Submit</button>
+
+        <div className="addRecipeDiv">
+          <button className="addButton">Add recipe</button>
         </div>
       </div>
     );
