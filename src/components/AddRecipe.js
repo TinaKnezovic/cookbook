@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import TagsInput from 'react-tagsinput';
 
 const initialState = {
   author: '',
@@ -74,8 +75,8 @@ class AddRecipe extends React.Component {
     this.setState({ type: event.target.value });
   }
 
-  handleChangeTags(event) {
-    this.setState({ tags: event.target.value });
+  handleChangeTags(tags) {
+    this.setState({ tags: tags });
   }
 
   handlePostRecipe() {
@@ -197,14 +198,7 @@ class AddRecipe extends React.Component {
             <option value="main">Main</option>
             <option value="dessert">Dessert</option>
           </select>
-          <div className="input-group">
-            <span> Enter tags: </span>
-            <input
-              type="text"
-              value={this.state.tags}
-              onChange={this.handleChangeTags}
-            />
-          </div>
+          <TagsInput value={this.state.tags} onChange={this.handleChangeTags} />
           <button type="submit" onClick={this.handlePostRecipe}>
             Post Recipe
           </button>
