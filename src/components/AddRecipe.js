@@ -137,7 +137,6 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeAuthor}
             />
           </div>
-
           <div className="input-group">
             <span>Recipe name: </span>
             <input
@@ -146,23 +145,20 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeRcpName}
             />
           </div>
-
           <div className="input-group">
             <span> Upload picture: </span>
             <input type="file" onChange={this.handleChangeImage} />
             {console.log(this.state.image)}
           </div>
-
-          <div className="input-group">
-            <span> Preparation_difficulty: </span>
-            <input
-              type="text"
-              placeholder="easy, medium, advance"
-              value={this.state.preparation}
-              onChange={this.handleChangePreparation}
-            />
-          </div>
-
+          Select preparation difficulty:{' '}
+          <select
+            value={this.state.preparation}
+            onChange={this.handleChangePreparation}
+          >
+            <option value="easy">Easy</option>
+            <option value="meidum">Medium</option>
+            <option value="advanced">Advanced</option>
+          </select>
           <div className="input-group">
             <span> Time (minutes): </span>
             <input
@@ -171,7 +167,6 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeTime}
             />
           </div>
-
           <div className="input-group">
             <span> Servings: </span>
             <input
@@ -180,7 +175,6 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeServings}
             />
           </div>
-
           <div className="input-group">
             <span> Ingredients: </span>
             <input
@@ -189,7 +183,6 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeIngredients}
             />
           </div>
-
           <div className="input-group">
             <span> Preparation steps: </span>
             <input
@@ -198,17 +191,12 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeSteps}
             />
           </div>
-
-          <div className="input-group">
-            <span> Dish type: </span>
-            <input
-              type="text"
-              placeholder="appetizers, main, dessert"
-              value={this.state.type}
-              onChange={this.handleChangeType}
-            />
-          </div>
-
+          Select dish type:{' '}
+          <select value={this.state.type} onChange={this.handleChangeType}>
+            <option value="appetizers">Appetizers</option>
+            <option value="main">Main</option>
+            <option value="dessert">Dessert</option>
+          </select>
           <div className="input-group">
             <span> Enter tags: </span>
             <input
@@ -217,7 +205,6 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeTags}
             />
           </div>
-
           <button type="submit" onClick={this.handlePostRecipe}>
             Post Recipe
           </button>
