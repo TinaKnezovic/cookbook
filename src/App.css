@@ -187,6 +187,11 @@ body {
   padding-left: 10%;
 }
 
+.deleteButton{
+  border-color: red;
+  color: red;
+}
+
 
 /* Za iphoneX */
 @media screen and (max-width: 400px) {

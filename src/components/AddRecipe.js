@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import TagsInput from 'react-tagsinput';
+import ListItems from './ListItems';
 
 const initialState = {
   author: '',
@@ -11,7 +12,9 @@ const initialState = {
   time: '',
   servings: '',
   ingredients: [],
+  currentIngredient: '',
   steps: [],
+  currentStep: '',
   type: '',
   tags: [],
 };
@@ -27,8 +30,17 @@ class AddRecipe extends React.Component {
     this.handleChangePreparation = this.handleChangePreparation.bind(this);
     this.handleChangeTime = this.handleChangeTime.bind(this);
     this.handleChangeServings = this.handleChangeServings.bind(this);
+
+    this.onSubmit = this.onSubmit.bind(this);
     this.handleChangeIngredients = this.handleChangeIngredients.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
+
+    this.onAddStep = this.onAddStep.bind(this);
     this.handleChangeSteps = this.handleChangeSteps.bind(this);
+    this.deleteStep = this.deleteStep.bind(this);
+    this.setUpdateStep = this.setUpdateStep.bind(this);
+
     this.handleChangeType = this.handleChangeType.bind(this);
     this.handleChangeTags = this.handleChangeTags.bind(this);
 
@@ -63,12 +75,80 @@ class AddRecipe extends React.Component {
     this.setState({ servings: event.target.value });
   }
 
-  handleChangeIngredients(event) {
-    this.setState({ ingredients: event.target.value });
+  handleChangeIngredients(e) {
+    this.setState({
+      currentIngredient: e.target.value,
+    });
   }
 
-  handleChangeSteps(event) {
-    this.setState({ steps: event.target.value });
+  onSubmit(e) {
+    e.preventDefault();
+    const newItem = this.state.currentIngredient;
+    if (newItem !== '') {
+      const items = [...this.state.ingredients, newItem];
+      this.setState({
+        ingredients: items,
+        currentIngredient: '',
+      });
+    }
+  }
+
+  deleteItem(text) {
+    const filteredItems = this.state.ingredients.filter(
+      (item) => item !== text,
+    );
+    this.setState({
+      ingredients: filteredItems,
+    });
+  }
+
+  setUpdate(text) {
+    const items = this.state.ingredients;
+    items.map((item) => {
+      if (item === text) {
+        item = text;
+      }
+    });
+    this.setState({
+      ingredients: items,
+    });
+  }
+
+  handleChangeSteps(e) {
+    this.setState({
+      currentStep: e.target.value,
+    });
+  }
+
+  onAddStep(e) {
+    e.preventDefault();
+    const newItem = this.state.currentStep;
+    if (newItem !== '') {
+      const items = [...this.state.steps, newItem];
+      this.setState({
+        steps: items,
+        currentStep: '',
+      });
+    }
+  }
+
+  deleteStep(text) {
+    const filteredItems = this.state.steps.filter((item) => item !== text);
+    this.setState({
+      steps: filteredItems,
+    });
+  }
+
+  setUpdateStep(text) {
+    const items = this.state.steps;
+    items.map((item) => {
+      if (item === text) {
+        item = text;
+      }
+    });
+    this.setState({
+      steps: items,
+    });
   }
 
   handleChangeType(event) {
@@ -176,29 +256,55 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeServings}
             />
           </div>
+          
           <div className="input-group">
-            <span> Ingredients: </span>
-            <input
-              type="text"
-              value={this.state.ingredients}
-              onChange={this.handleChangeIngredients}
+            <form id="to-do-form" onSubmit={this.onSubmit}>
+              <span> Ingredients: </span>
+              <input
+                type="text"
+                value={this.state.currentIngredient}
+                onChange={this.handleChangeIngredients}
+              ></input>
+              <button type="submit">ADD INGREDIENT</button>
+            </form>
+            <ListItems
+              items={this.state.ingredients}
+              deleteItem={this.deleteItem}
+              setUpdate={this.setUpdate}
+            />
+          </div>
+
+          <div className="input-group">
+            <form id="to-do-form" onSubmit={this.onAddStep}>
+              <span> Preparation steps: </span>
+              <input
+                type="text"
+                value={this.state.currentStep}
+                onChange={this.handleChangeSteps}
+              ></input>
+              <button type="submit">ADD STEP</button>
+            </form>
+            <ListItems
+              items={this.state.steps}
+              deleteItem={this.deleteStep}
+              setUpdate={this.setUpdateStep}
             />
           </div>
           <div className="input-group">
-            <span> Preparation steps: </span>
-            <input
-              type="text"
-              value={this.state.steps}
-              onChange={this.handleChangeSteps}
+            Select dish type:{' '}
+            <select value={this.state.type} onChange={this.handleChangeType}>
+              <option value="appetizers">Appetizers</option>
+              <option value="main">Main</option>
+              <option value="dessert">Dessert</option>
+            </select>
+          </div>
+          <div className="input-tags">
+            <TagsInput
+              value={this.state.tags}
+              onChange={this.handleChangeTags}
             />
           </div>
-          Select dish type:{' '}
-          <select value={this.state.type} onChange={this.handleChangeType}>
-            <option value="appetizers">Appetizers</option>
-            <option value="main">Main</option>
-            <option value="dessert">Dessert</option>
-          </select>
-          <TagsInput value={this.state.tags} onChange={this.handleChangeTags} />
+          <br />
           <button type="submit" onClick={this.handlePostRecipe}>
             Post Recipe
           </button>
