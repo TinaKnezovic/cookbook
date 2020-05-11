@@ -123,7 +123,7 @@
         "Return the saucepan to the heat, bring to the boil, then simmer for 2 minutes.",
         "Stir in the asparagus purée and gently reheat. Stir in the lemon zest and season to taste with sea salt and freshly ground black pepper. Serve garnished with a little extra lemon zest. "
       ],
-      "dish_type": "appetizers",
+      "dish_type": "appetizer",
       "tags": [
         "asparagus",
         "soup",
@@ -155,7 +155,7 @@
         "Heat butter and 2 tsp oil in a non-reactive saucepan and gently fry garlic until pale gold.Add sorrel and then salt and pepper, stirring to wilt sorrel evenly. Add stock and bring to simmering point, then lower heat and cook for 10 minutes. Puree until smooth in a blender or food processor. Strain soup back into saucepan, check seasoning and heat to shivering point (just below a simmer).",
         "In a large, warmed bowl, beat egg yolks until creamy and light. Remove soup from heat for a few minutes. Whisk a ladle of the hot soup into the egg yolks for 1 minute, then tip egg mixture back into soup pot and whisk until lightly thickened and velvety. Serve at once with croutons."
       ],
-      "dish_type": "appetizers",
+      "dish_type": "appetizer",
       "tags": [
         "sorrel",
         "soup",
@@ -272,7 +272,6 @@
         "shrimps"
       ]
     }
-    
   ],
   "comments": [
     {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 class Comment extends React.Component {
   static propTypes = {
@@ -10,7 +11,8 @@ class Comment extends React.Component {
     return (
       <div className="Comment">
         <div className="user_date">
-          <img src={require('../images/user.png')} alt="" /> {user}, {date}
+          <img src={require('../images/user.png')} alt="" /> {user} |{' '}
+          {moment(date).format('LLL')}
         </div>
         <div className="comment_text">{text}</div>
       </div>

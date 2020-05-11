@@ -9,28 +9,16 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <button href="home" onClick={this.props.handleCategory}>
-          Home
+        <button value={''} onClick={this.props.handleCategory}>
+          All Recipes
         </button>
-        <button
-          href="appetizers"
-          value={'appetizers'}
-          onClick={this.props.handleCategory}
-        >
+        <button value={'appetizer'} onClick={this.props.handleCategory}>
           Appetizers
         </button>
-        <button
-          href="main"
-          value={'main'}
-          onClick={this.props.handleCategory}
-        >
-          Main
+        <button value={'main'} onClick={this.props.handleCategory}>
+          Main Dishes
         </button>
-        <button
-          href="desserts"
-          value={'dessert'}
-          onClick={this.props.handleCategory}
-        >
+        <button value={'dessert'} onClick={this.props.handleCategory}>
           Desserts
         </button>
       </div>

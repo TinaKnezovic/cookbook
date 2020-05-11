@@ -1,13 +1,12 @@
 import React from 'react';
-import Header from './components/Header.js';
-import Side from './components/Side.js';
-import Footer from './components/Footer.js';
-import Navbar from './components/Navbar.js';
-import AddRecipe from './components/AddRecipe.js';
-import Recipes from './components/Recipes.js';
+import Header from './components/Header';
+import Side from './components/Side';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import AddRecipe from './components/AddRecipe';
+import Recipe from './components/Recipe';
+import { BASE_URL } from './config';
 import './App.css';
-
-const BASE_URL = 'http://localhost:4000/';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,11 +16,13 @@ class App extends React.Component {
       filteredRecipes: [],
       comments: [],
       search: '',
+      addRecipeMode: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
+    this.setAddRecipeMode = this.setAddRecipeMode.bind(this);
     this.fetchRecipes = this.fetchRecipes.bind(this);
     this.fetchComments = this.fetchComments.bind(this);
   }
@@ -42,15 +43,19 @@ class App extends React.Component {
         recipe.name.toLowerCase().includes(filterString) ||
         recipe.tags.includes(filterString),
     );
-    this.setState({ filteredRecipes });
+    this.setState({ filteredRecipes, addRecipeMode: false });
   }
 
   handleCategory(event) {
-    const filterString = event.target.value.toLowerCase();
+    const dishType = event.target.value;
     const filteredRecipes = this.state.recipes.filter((recipe) =>
-      recipe.dish_type.toLowerCase().includes(filterString),
+      recipe.dish_type.includes(dishType),
     );
-    this.setState({ filteredRecipes });
+    this.setState({ filteredRecipes, addRecipeMode: false });
+  }
+
+  setAddRecipeMode() {
+    this.setState({ addRecipeMode: true });
   }
 
   fetchRecipes() {
@@ -60,6 +65,7 @@ class App extends React.Component {
         this.setState({
           recipes: data,
           filteredRecipes: data,
+          addRecipeMode: false,
         });
       });
   }
@@ -75,7 +81,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { filteredRecipes, search } = this.state;
+    const { filteredRecipes, comments, search, addRecipeMode } = this.state;
 
     return (
       <div className="App">
@@ -88,22 +94,25 @@ class App extends React.Component {
         <Navbar handleCategory={this.handleCategory} />
 
         <div className="row">
-          <Side />
+          <Side onAddRecipeClick={this.setAddRecipeMode} />
           <div className="main">
-            <AddRecipe onPostCallback={this.fetchRecipes} />
-            <div className="searchResult">
-              {filteredRecipes.map((recipe, index) => {
-                return (
-                  <div key={index} className="receipe">
-                    <Recipes
-                      recipe={recipe}
-                      comments={this.state.comments}
-                      onPostCallback={this.fetchComments}
-                    />
-                  </div>
-                );
-              })}
-            </div>
+            {addRecipeMode ? (
+              <AddRecipe onPostCallback={this.fetchRecipes} />
+            ) : (
+              <div className="searchResult">
+                {filteredRecipes.map((recipe, index) => {
+                  return (
+                    <div key={index} className="recipe">
+                      <Recipe
+                        recipe={recipe}
+                        comments={comments}
+                        onPostCallback={this.fetchComments}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
         <Footer />

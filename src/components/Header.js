@@ -31,11 +31,7 @@ class Header extends React.Component {
             value={this.props.search}
             onChange={this.handleChange}
           ></input>
-          <button
-            className="Search"
-            type="submit"
-            onClick={this.props.onSearchCallback}
-          >
+          <button className="Search" onClick={this.props.onSearchCallback}>
             Search
           </button>
         </div>

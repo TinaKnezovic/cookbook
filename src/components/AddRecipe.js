@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import TagsInput from 'react-tagsinput';
 import ListItems from './ListItems';
+import { BASE_URL, UPLOAD_URL } from '../config';
 
 const initialState = {
   author: '',
-  RcpName: '',
-  image: '',
-  preparation: '',
-  time: '',
-  servings: '',
+  name: '',
+  image: null,
+  preparation_difficulty: 'medium',
+  preparation_time: 60,
+  servings: 2,
+  dish_type: 'main',
   ingredients: [],
-  currentIngredient: '',
-  steps: [],
-  currentStep: '',
-  type: '',
+  newIngredient: '',
+  preparation_steps: [],
+  newStep: '',
   tags: [],
+  newTag: '',
 };
 
 class AddRecipe extends React.Component {
@@ -25,24 +26,28 @@ class AddRecipe extends React.Component {
     this.state = initialState;
 
     this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
-    this.handleChangeRcpName = this.handleChangeRcpName.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeImage = this.handleChangeImage.bind(this);
-    this.handleChangePreparation = this.handleChangePreparation.bind(this);
-    this.handleChangeTime = this.handleChangeTime.bind(this);
+    this.handleChangePreparationDifficulty = this.handleChangePreparationDifficulty.bind(
+      this,
+    );
+    this.handleChangePreparationTime = this.handleChangePreparationTime.bind(
+      this,
+    );
     this.handleChangeServings = this.handleChangeServings.bind(this);
+    this.handleChangeDishType = this.handleChangeDishType.bind(this);
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.handleChangeIngredients = this.handleChangeIngredients.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-    this.setUpdate = this.setUpdate.bind(this);
+    this.handleChangeIngredient = this.handleChangeIngredient.bind(this);
+    this.addIngredient = this.addIngredient.bind(this);
+    this.deleteIngredient = this.deleteIngredient.bind(this);
 
-    this.onAddStep = this.onAddStep.bind(this);
-    this.handleChangeSteps = this.handleChangeSteps.bind(this);
+    this.handleChangeStep = this.handleChangeStep.bind(this);
+    this.addStep = this.addStep.bind(this);
     this.deleteStep = this.deleteStep.bind(this);
-    this.setUpdateStep = this.setUpdateStep.bind(this);
 
-    this.handleChangeType = this.handleChangeType.bind(this);
-    this.handleChangeTags = this.handleChangeTags.bind(this);
+    this.handleChangeTag = this.handleChangeTag.bind(this);
+    this.addTag = this.addTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
 
     this.handlePostRecipe = this.handlePostRecipe.bind(this);
   }
@@ -51,155 +56,151 @@ class AddRecipe extends React.Component {
     onPostCallback: PropTypes.func,
   };
 
-  handleChangeAuthor(event) {
-    this.setState({ author: event.target.value });
+  handleChangeAuthor({ target: { value } }) {
+    this.setState({ author: value });
   }
 
-  handleChangeRcpName(event) {
-    this.setState({ RcpName: event.target.value });
+  handleChangeName({ target: { value } }) {
+    this.setState({ name: value });
   }
 
-  handleChangeImage(event) {
-    this.setState({ image: event.target.files[0] });
+  handleChangeImage({ target }) {
+    this.setState({ image: target.files[0] });
   }
 
-  handleChangePreparation(event) {
-    this.setState({ preparation: event.target.value });
+  handleChangePreparationDifficulty({ target: { value } }) {
+    this.setState({ preparation_difficulty: value });
   }
 
-  handleChangeTime(event) {
-    this.setState({ time: event.target.value });
+  handleChangePreparationTime({ target: { value } }) {
+    this.setState({ preparation_time: value !== '' ? parseInt(value) : 0 });
   }
 
-  handleChangeServings(event) {
-    this.setState({ servings: event.target.value });
+  handleChangeServings({ target: { value } }) {
+    this.setState({ servings: value !== '' ? parseInt(value) : 0 });
   }
 
-  handleChangeIngredients(e) {
-    this.setState({
-      currentIngredient: e.target.value,
-    });
+  handleChangeDishType({ target: { value } }) {
+    this.setState({ dish_type: value });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const newItem = this.state.currentIngredient;
-    if (newItem !== '') {
-      const items = [...this.state.ingredients, newItem];
+  handleChangeIngredient({ target: { value } }) {
+    this.setState({ newIngredient: value });
+  }
+
+  addIngredient() {
+    const newIngredient = this.state.newIngredient;
+    if (newIngredient !== '') {
+      const ingredients = [...this.state.ingredients, newIngredient];
       this.setState({
-        ingredients: items,
-        currentIngredient: '',
+        ingredients,
+        newIngredient: '',
       });
     }
   }
 
-  deleteItem(text) {
-    const filteredItems = this.state.ingredients.filter(
-      (item) => item !== text,
+  deleteIngredient(value) {
+    const ingredients = this.state.ingredients.filter((item) => item !== value);
+    this.setState({ ingredients });
+  }
+
+  handleChangeStep({ target: { value } }) {
+    this.setState({ newStep: value });
+  }
+
+  addStep() {
+    const newStep = this.state.newStep;
+    if (newStep !== '') {
+      const preparation_steps = [...this.state.preparation_steps, newStep];
+      this.setState({
+        preparation_steps,
+        newStep: '',
+      });
+    }
+  }
+
+  deleteStep(value) {
+    const preparation_steps = this.state.preparation_steps.filter(
+      (item) => item !== value,
     );
-    this.setState({
-      ingredients: filteredItems,
-    });
+    this.setState({ preparation_steps });
   }
 
-  setUpdate(text) {
-    const items = this.state.ingredients;
-    items.map((item) => {
-      if (item === text) {
-        item = text;
-      }
-    });
-    this.setState({
-      ingredients: items,
-    });
+  handleChangeTag({ target: { value } }) {
+    this.setState({ newTag: value });
   }
 
-  handleChangeSteps(e) {
-    this.setState({
-      currentStep: e.target.value,
-    });
-  }
-
-  onAddStep(e) {
-    e.preventDefault();
-    const newItem = this.state.currentStep;
-    if (newItem !== '') {
-      const items = [...this.state.steps, newItem];
+  addTag() {
+    const newTag = this.state.newTag;
+    if (newTag !== '') {
+      const tags = [...this.state.tags, newTag];
       this.setState({
-        steps: items,
-        currentStep: '',
+        tags,
+        newTag: '',
       });
     }
   }
 
-  deleteStep(text) {
-    const filteredItems = this.state.steps.filter((item) => item !== text);
-    this.setState({
-      steps: filteredItems,
-    });
-  }
-
-  setUpdateStep(text) {
-    const items = this.state.steps;
-    items.map((item) => {
-      if (item === text) {
-        item = text;
-      }
-    });
-    this.setState({
-      steps: items,
-    });
-  }
-
-  handleChangeType(event) {
-    this.setState({ type: event.target.value });
-  }
-
-  handleChangeTags(tags) {
-    this.setState({ tags: tags });
+  deleteTag(value) {
+    const tags = this.state.tags.filter((item) => item !== value);
+    this.setState({ tags });
   }
 
   handlePostRecipe() {
     const { onPostCallback } = this.props;
     const {
+      author,
       name,
-      RcpName,
       image,
-      preparation,
-      time,
+      preparation_difficulty,
+      preparation_time,
       servings,
       ingredients,
-      steps,
-      type,
+      preparation_steps,
+      dish_type,
       tags,
     } = this.state;
 
-    fetch(`http://localhost:4000/recipes`, {
+    const fileName = `${moment().format('x')}_${image.name}`;
+    const data = new FormData();
+    data.append('fileName', fileName);
+    data.append('file', this.state.image);
+
+    fetch(UPLOAD_URL, {
       method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        author: name,
-        date: moment().format(),
-        name: RcpName,
-        image: image,
-        preparation_difficulty: preparation,
-        preparation_time: time,
-        servings: servings,
-        ingredients: ingredients,
-        preparation_steps: steps,
-        dish_type: type,
-        tags: tags,
-      }),
+      body: data,
     })
-      .then((response) => {
-        if (response.ok) {
-          this.setState({
-            ...initialState,
+      .then(() => {
+        fetch(BASE_URL + 'recipes', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            author,
+            date: moment().format(),
+            name,
+            image: fileName,
+            preparation_difficulty,
+            preparation_time,
+            servings,
+            ingredients,
+            preparation_steps,
+            dish_type,
+            tags,
+          }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              this.setState({
+                ...initialState,
+              });
+              onPostCallback();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
           });
-          onPostCallback();
-        }
       })
       .catch((error) => {
         console.log(error);
@@ -211,7 +212,7 @@ class AddRecipe extends React.Component {
       <div className="Comment">
         <div className="comment-form">
           <div className="input-group">
-            <span>Your name: </span>
+            <span>Your Name: </span>
             <input
               type="text"
               value={this.state.author}
@@ -219,95 +220,91 @@ class AddRecipe extends React.Component {
             />
           </div>
           <div className="input-group">
-            <span>Recipe name: </span>
+            <span>Recipe Name: </span>
             <input
               type="text"
-              value={this.state.RcpName}
-              onChange={this.handleChangeRcpName}
+              value={this.state.name}
+              onChange={this.handleChangeName}
             />
           </div>
           <div className="input-group">
-            <span> Upload picture: </span>
+            <span>Image: </span>
             <input type="file" onChange={this.handleChangeImage} />
-            {console.log(this.state.image)}
           </div>
-          Select preparation difficulty:{' '}
+          Preparation Difficulty:{' '}
           <select
-            value={this.state.preparation}
-            onChange={this.handleChangePreparation}
+            value={this.state.preparation_difficulty}
+            onChange={this.handleChangePreparationDifficulty}
           >
             <option value="easy">Easy</option>
-            <option value="meidum">Medium</option>
+            <option value="medium">Medium</option>
             <option value="advanced">Advanced</option>
           </select>
           <div className="input-group">
-            <span> Time (minutes): </span>
+            <span>Preparation Time (minutes): </span>
             <input
               type="text"
-              value={this.state.time}
-              onChange={this.handleChangeTime}
+              value={this.state.preparation_time}
+              onChange={this.handleChangePreparationTime}
             />
           </div>
           <div className="input-group">
-            <span> Servings: </span>
+            <span>Servings: </span>
             <input
               type="text"
               value={this.state.servings}
               onChange={this.handleChangeServings}
             />
           </div>
-          
           <div className="input-group">
-            <form id="to-do-form" onSubmit={this.onSubmit}>
-              <span> Ingredients: </span>
-              <input
-                type="text"
-                value={this.state.currentIngredient}
-                onChange={this.handleChangeIngredients}
-              ></input>
-              <button type="submit">ADD INGREDIENT</button>
-            </form>
+            <span>Ingredients: </span>
+            <input
+              type="text"
+              value={this.state.newIngredient}
+              onChange={this.handleChangeIngredient}
+            />
+            <button onClick={this.addIngredient}>ADD INGREDIENT</button>
             <ListItems
               items={this.state.ingredients}
-              deleteItem={this.deleteItem}
-              setUpdate={this.setUpdate}
+              deleteItem={this.deleteIngredient}
             />
           </div>
-
           <div className="input-group">
-            <form id="to-do-form" onSubmit={this.onAddStep}>
-              <span> Preparation steps: </span>
-              <input
-                type="text"
-                value={this.state.currentStep}
-                onChange={this.handleChangeSteps}
-              ></input>
-              <button type="submit">ADD STEP</button>
-            </form>
+            <span>Preparation Steps: </span>
+            <input
+              type="text"
+              value={this.state.newStep}
+              onChange={this.handleChangeStep}
+            />
+            <button onClick={this.addStep}>ADD STEP</button>
             <ListItems
-              items={this.state.steps}
+              items={this.state.preparation_steps}
               deleteItem={this.deleteStep}
-              setUpdate={this.setUpdateStep}
             />
           </div>
           <div className="input-group">
-            Select dish type:{' '}
-            <select value={this.state.type} onChange={this.handleChangeType}>
-              <option value="appetizers">Appetizers</option>
-              <option value="main">Main</option>
+            Dish Type:{' '}
+            <select
+              value={this.state.dish_type}
+              onChange={this.handleChangeDishType}
+            >
+              <option value="appetizer">Appetizer</option>
+              <option value="main">Main Dish</option>
               <option value="dessert">Dessert</option>
             </select>
           </div>
-          <div className="input-tags">
-            <TagsInput
-              value={this.state.tags}
-              onChange={this.handleChangeTags}
+          <div className="input-group">
+            <span>Tags: </span>
+            <input
+              type="text"
+              value={this.state.newTag}
+              onChange={this.handleChangeTag}
             />
+            <button onClick={this.addTag}>ADD TAG</button>
+            <ListItems items={this.state.tags} deleteItem={this.deleteTag} />
           </div>
           <br />
-          <button type="submit" onClick={this.handlePostRecipe}>
-            Post Recipe
-          </button>
+          <button onClick={this.handlePostRecipe}>Post Recipe</button>
         </div>
       </div>
     );

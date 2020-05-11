@@ -1,33 +1,25 @@
 import React from 'react';
 
 function ListItems(props) {
-  const items = props.items;
-  const listItems = items.map((item) => {
+  const { items, deleteItem } = props;
+  const listItems = items.map((item, i) => {
     return (
-      <div className="list">
-        <p>
-          <input
-            type="text"
-            value={item}
-            onChange={(e) => {
-              props.setUpdate(e.target.value);
+      <li key={i}>
+        {item}{' '}
+        <span>
+          <button
+            className="deleteButton"
+            onClick={() => {
+              deleteItem(item);
             }}
-          />
-          <span>
-            <button
-              className="deleteButton"
-              onClick={() => {
-                props.deleteItem(item);
-              }}
-            >
-              X
-            </button>
-          </span>
-        </p>
-      </div>
+          >
+            X
+          </button>
+        </span>
+      </li>
     );
   });
-  return <div>{listItems}</div>;
+  return <ul>{listItems}</ul>;
 }
 
 export default ListItems;

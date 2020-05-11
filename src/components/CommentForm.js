@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { BASE_URL } from '../config';
 
 class CommentForm extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class CommentForm extends React.Component {
   handlePostComment() {
     const { recipeId, onPostCallback } = this.props;
     const { name, comment } = this.state;
-    fetch(`http://localhost:4000/comments`, {
+    fetch(BASE_URL + 'comments', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -75,9 +76,7 @@ class CommentForm extends React.Component {
               onChange={this.handleChangeComment}
             />
           </div>
-          <button type="submit" onClick={this.handlePostComment}>
-            Post Comment
-          </button>
+          <button onClick={this.handlePostComment}>Post Comment</button>
         </div>
       </div>
     );
