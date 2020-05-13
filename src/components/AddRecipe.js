@@ -18,6 +18,10 @@ const initialState = {
   newStep: '',
   tags: [],
   newTag: '',
+  authorError: '',
+  nameError: '',
+  prepTimeError: '',
+  servingsError: '',
 };
 
 class AddRecipe extends React.Component {
@@ -146,6 +150,35 @@ class AddRecipe extends React.Component {
     this.setState({ tags });
   }
 
+  validate = () => {
+    let authorError = '';
+    let nameError = '';
+    let prepTimeError;
+    let servingsError;
+
+    if (!this.state.author) {
+      authorError = 'field cannot be blank';
+    }
+
+    if (!this.state.name) {
+      nameError = 'field cannot be blank';
+    }
+
+    if (this.state.preparation_time === 0) {
+      prepTimeError = 'field cannot be 0';
+    }
+    if (this.state.servings === 0) {
+      servingsError = 'field cannot be 0';
+    }
+
+    if (authorError || nameError || prepTimeError || servingsError) {
+      this.setState({ authorError, nameError, prepTimeError, servingsError });
+      return false;
+    }
+
+    return true;
+  };
+
   handlePostRecipe() {
     const { onPostCallback } = this.props;
     const {
@@ -166,45 +199,48 @@ class AddRecipe extends React.Component {
     data.append('fileName', fileName);
     data.append('file', this.state.image);
 
-    fetch(UPLOAD_URL, {
-      method: 'post',
-      body: data,
-    })
-      .then(() => {
-        fetch(BASE_URL + 'recipes', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            author,
-            date: moment().format(),
-            name,
-            image: fileName,
-            preparation_difficulty,
-            preparation_time,
-            servings,
-            ingredients,
-            preparation_steps,
-            dish_type,
-            tags,
-          }),
-        })
-          .then((response) => {
-            if (response.ok) {
-              this.setState({
-                ...initialState,
-              });
-              onPostCallback();
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+    const isValid = this.validate();
+    if (isValid) {
+      fetch(UPLOAD_URL, {
+        method: 'post',
+        body: data,
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then(() => {
+          fetch(BASE_URL + 'recipes', {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              author,
+              date: moment().format(),
+              name,
+              image: fileName,
+              preparation_difficulty,
+              preparation_time,
+              servings,
+              ingredients,
+              preparation_steps,
+              dish_type,
+              tags,
+            }),
+          })
+            .then((response) => {
+              if (response.ok) {
+                this.setState({
+                  ...initialState,
+                });
+                onPostCallback();
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   render() {
@@ -219,6 +255,9 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangeAuthor}
             />
           </div>
+          <div style={{ fontSize: 12, color: 'red' }}>
+            {this.state.authorError}
+          </div>
           <div className="input-group">
             <span>Recipe Name: </span>
             <input
@@ -226,6 +265,9 @@ class AddRecipe extends React.Component {
               value={this.state.name}
               onChange={this.handleChangeName}
             />
+          </div>
+          <div style={{ fontSize: 12, color: 'red' }}>
+            {this.state.nameError}
           </div>
           <div className="input-group">
             <span>Image: </span>
@@ -248,6 +290,9 @@ class AddRecipe extends React.Component {
               onChange={this.handleChangePreparationTime}
             />
           </div>
+          <div style={{ fontSize: 12, color: 'red' }}>
+            {this.state.prepTimeError}
+          </div>
           <div className="input-group">
             <span>Servings: </span>
             <input
@@ -255,6 +300,9 @@ class AddRecipe extends React.Component {
               value={this.state.servings}
               onChange={this.handleChangeServings}
             />
+          </div>
+          <div style={{ fontSize: 12, color: 'red' }}>
+            {this.state.servingsError}
           </div>
           <div className="input-group">
             <span>Ingredients: </span>
