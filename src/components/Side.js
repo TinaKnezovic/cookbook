@@ -11,7 +11,7 @@ class Side extends React.Component {
       <div className="side">
         <h2>About us:</h2>
         <p>We are a brand new site with the most delicious recipes.</p>
-        <p>Enyoj!</p>
+        <p>Enjoy!</p>
         <div className="imgSide">
           <img src={require('../images/pic_side.jpg')} alt="" />
         </div>

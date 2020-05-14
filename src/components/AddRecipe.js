@@ -22,6 +22,9 @@ const initialState = {
   nameError: '',
   prepTimeError: '',
   servingsError: '',
+  imageError: '',
+  ingredientsError: '',
+  stepsError: '',
 };
 
 class AddRecipe extends React.Component {
@@ -155,24 +158,52 @@ class AddRecipe extends React.Component {
     let nameError = '';
     let prepTimeError;
     let servingsError;
+    let imageError;
+    let ingredientsError;
+    let stepsError;
 
     if (!this.state.author) {
-      authorError = 'field cannot be blank';
+      authorError = 'Field cannot be blank';
     }
 
     if (!this.state.name) {
-      nameError = 'field cannot be blank';
+      nameError = 'Field cannot be blank';
     }
 
     if (this.state.preparation_time === 0) {
-      prepTimeError = 'field cannot be 0';
+      prepTimeError = 'Field cannot be 0';
     }
     if (this.state.servings === 0) {
-      servingsError = 'field cannot be 0';
+      servingsError = 'Field cannot be 0';
+    }
+    if (this.state.image === null) {
+      imageError = 'You must upload a picture';
+    }
+    if (this.state.ingredients.length === 0) {
+      ingredientsError = 'You must enter at least one ingredient';
+    }
+    if (this.state.preparation_steps.length === 0) {
+      stepsError = 'You must enter at least one step';
     }
 
-    if (authorError || nameError || prepTimeError || servingsError) {
-      this.setState({ authorError, nameError, prepTimeError, servingsError });
+    if (
+      authorError ||
+      nameError ||
+      prepTimeError ||
+      servingsError ||
+      imageError ||
+      ingredientsError ||
+      stepsError
+    ) {
+      this.setState({
+        authorError,
+        nameError,
+        prepTimeError,
+        servingsError,
+        imageError,
+        ingredientsError,
+        stepsError,
+      });
       return false;
     }
 
@@ -194,13 +225,13 @@ class AddRecipe extends React.Component {
       tags,
     } = this.state;
 
-    const fileName = `${moment().format('x')}_${image.name}`;
-    const data = new FormData();
-    data.append('fileName', fileName);
-    data.append('file', this.state.image);
-
     const isValid = this.validate();
     if (isValid) {
+      const fileName = `${moment().format('x')}_${image.name}`;
+      const data = new FormData();
+      data.append('fileName', fileName);
+      data.append('file', this.state.image);
+
       fetch(UPLOAD_URL, {
         method: 'post',
         body: data,
@@ -273,6 +304,9 @@ class AddRecipe extends React.Component {
             <span>Image: </span>
             <input type="file" onChange={this.handleChangeImage} />
           </div>
+          <div style={{ fontSize: 12, color: 'red' }}>
+            {this.state.imageError}
+          </div>
           Preparation Difficulty:{' '}
           <select
             value={this.state.preparation_difficulty}
@@ -311,6 +345,9 @@ class AddRecipe extends React.Component {
               value={this.state.newIngredient}
               onChange={this.handleChangeIngredient}
             />
+            <div style={{ fontSize: 12, color: 'red' }}>
+              {this.state.ingredientsError}
+            </div>
             <button onClick={this.addIngredient}>ADD INGREDIENT</button>
             <ListItems
               items={this.state.ingredients}
@@ -324,6 +361,9 @@ class AddRecipe extends React.Component {
               value={this.state.newStep}
               onChange={this.handleChangeStep}
             />
+            <div style={{ fontSize: 12, color: 'red' }}>
+              {this.state.stepsError}
+            </div>
             <button onClick={this.addStep}>ADD STEP</button>
             <ListItems
               items={this.state.preparation_steps}
