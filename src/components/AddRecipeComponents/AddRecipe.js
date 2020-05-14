@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import ListItems from './ListItems';
-import { BASE_URL, UPLOAD_URL } from '../config';
+import { BASE_URL, UPLOAD_URL } from '../../config';
 
 const initialState = {
   author: '',
@@ -31,31 +31,6 @@ class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-
-    this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeImage = this.handleChangeImage.bind(this);
-    this.handleChangePreparationDifficulty = this.handleChangePreparationDifficulty.bind(
-      this,
-    );
-    this.handleChangePreparationTime = this.handleChangePreparationTime.bind(
-      this,
-    );
-    this.handleChangeServings = this.handleChangeServings.bind(this);
-    this.handleChangeDishType = this.handleChangeDishType.bind(this);
-
-    this.handleChangeIngredient = this.handleChangeIngredient.bind(this);
-    this.addIngredient = this.addIngredient.bind(this);
-    this.deleteIngredient = this.deleteIngredient.bind(this);
-
-    this.handleChangeStep = this.handleChangeStep.bind(this);
-    this.addStep = this.addStep.bind(this);
-    this.deleteStep = this.deleteStep.bind(this);
-
-    this.handleChangeTag = this.handleChangeTag.bind(this);
-    this.addTag = this.addTag.bind(this);
-    this.deleteTag = this.deleteTag.bind(this);
-
     this.handlePostRecipe = this.handlePostRecipe.bind(this);
   }
 
@@ -63,39 +38,19 @@ class AddRecipe extends React.Component {
     onPostCallback: PropTypes.func,
   };
 
-  handleChangeAuthor({ target: { value } }) {
-    this.setState({ author: value });
-  }
+  handleChange = ({ target: { value, name } }) => {
+    this.setState({ [name]: value });
+  };
 
-  handleChangeName({ target: { value } }) {
-    this.setState({ name: value });
-  }
-
-  handleChangeImage({ target }) {
+  handleChangeImage = ({ target }) => {
     this.setState({ image: target.files[0] });
-  }
+  };
 
-  handleChangePreparationDifficulty({ target: { value } }) {
-    this.setState({ preparation_difficulty: value });
-  }
+  handleChangeTimeServings = ({ target: { value, name } }) => {
+    this.setState({ [name]: value !== '' ? parseInt(value) : 0 });
+  };
 
-  handleChangePreparationTime({ target: { value } }) {
-    this.setState({ preparation_time: value !== '' ? parseInt(value) : 0 });
-  }
-
-  handleChangeServings({ target: { value } }) {
-    this.setState({ servings: value !== '' ? parseInt(value) : 0 });
-  }
-
-  handleChangeDishType({ target: { value } }) {
-    this.setState({ dish_type: value });
-  }
-
-  handleChangeIngredient({ target: { value } }) {
-    this.setState({ newIngredient: value });
-  }
-
-  addIngredient() {
+  addIngredient = () => {
     const newIngredient = this.state.newIngredient;
     if (newIngredient !== '') {
       const ingredients = [...this.state.ingredients, newIngredient];
@@ -104,18 +59,18 @@ class AddRecipe extends React.Component {
         newIngredient: '',
       });
     }
-  }
+  };
 
-  deleteIngredient(value) {
+  deleteIngredient = (value) => {
     const ingredients = this.state.ingredients.filter((item) => item !== value);
     this.setState({ ingredients });
-  }
+  };
 
-  handleChangeStep({ target: { value } }) {
+  handleChangeStep = ({ target: { value } }) => {
     this.setState({ newStep: value });
-  }
+  };
 
-  addStep() {
+  addStep = () => {
     const newStep = this.state.newStep;
     if (newStep !== '') {
       const preparation_steps = [...this.state.preparation_steps, newStep];
@@ -124,20 +79,20 @@ class AddRecipe extends React.Component {
         newStep: '',
       });
     }
-  }
+  };
 
-  deleteStep(value) {
+  deleteStep = (value) => {
     const preparation_steps = this.state.preparation_steps.filter(
       (item) => item !== value,
     );
     this.setState({ preparation_steps });
-  }
+  };
 
-  handleChangeTag({ target: { value } }) {
+  handleChangeTag = ({ target: { value } }) => {
     this.setState({ newTag: value });
-  }
+  };
 
-  addTag() {
+  addTag = () => {
     const newTag = this.state.newTag;
     if (newTag !== '') {
       const tags = [...this.state.tags, newTag];
@@ -146,12 +101,12 @@ class AddRecipe extends React.Component {
         newTag: '',
       });
     }
-  }
+  };
 
-  deleteTag(value) {
+  deleteTag = (value) => {
     const tags = this.state.tags.filter((item) => item !== value);
     this.setState({ tags });
-  }
+  };
 
   validate = () => {
     let authorError = '';
@@ -282,8 +237,9 @@ class AddRecipe extends React.Component {
             <span>Your Name: </span>
             <input
               type="text"
+              name="author"
               value={this.state.author}
-              onChange={this.handleChangeAuthor}
+              onChange={this.handleChange}
             />
           </div>
           <div style={{ fontSize: 12, color: 'red' }}>
@@ -293,8 +249,9 @@ class AddRecipe extends React.Component {
             <span>Recipe Name: </span>
             <input
               type="text"
+              name="name"
               value={this.state.name}
-              onChange={this.handleChangeName}
+              onChange={this.handleChange}
             />
           </div>
           <div style={{ fontSize: 12, color: 'red' }}>
@@ -309,8 +266,9 @@ class AddRecipe extends React.Component {
           </div>
           Preparation Difficulty:{' '}
           <select
+            name="preparation_difficulty"
             value={this.state.preparation_difficulty}
-            onChange={this.handleChangePreparationDifficulty}
+            onChange={this.handleChange}
           >
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
@@ -320,8 +278,9 @@ class AddRecipe extends React.Component {
             <span>Preparation Time (minutes): </span>
             <input
               type="text"
+              name="preparation_time"
               value={this.state.preparation_time}
-              onChange={this.handleChangePreparationTime}
+              onChange={this.handleChangeTimeServings}
             />
           </div>
           <div style={{ fontSize: 12, color: 'red' }}>
@@ -331,8 +290,9 @@ class AddRecipe extends React.Component {
             <span>Servings: </span>
             <input
               type="text"
+              name="servings"
               value={this.state.servings}
-              onChange={this.handleChangeServings}
+              onChange={this.handleChangeTimeServings}
             />
           </div>
           <div style={{ fontSize: 12, color: 'red' }}>
@@ -342,8 +302,9 @@ class AddRecipe extends React.Component {
             <span>Ingredients: </span>
             <input
               type="text"
+              name="newIngredient"
               value={this.state.newIngredient}
-              onChange={this.handleChangeIngredient}
+              onChange={this.handleChange}
             />
             <div style={{ fontSize: 12, color: 'red' }}>
               {this.state.ingredientsError}
@@ -358,8 +319,9 @@ class AddRecipe extends React.Component {
             <span>Preparation Steps: </span>
             <input
               type="text"
+              name="newStep"
               value={this.state.newStep}
-              onChange={this.handleChangeStep}
+              onChange={this.handleChange}
             />
             <div style={{ fontSize: 12, color: 'red' }}>
               {this.state.stepsError}
@@ -373,8 +335,9 @@ class AddRecipe extends React.Component {
           <div className="input-group">
             Dish Type:{' '}
             <select
+              name="dish_type"
               value={this.state.dish_type}
-              onChange={this.handleChangeDishType}
+              onChange={this.handleChange}
             >
               <option value="appetizer">Appetizer</option>
               <option value="main">Main Dish</option>
