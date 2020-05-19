@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import ListItems from './ListItems';
 import { BASE_URL, UPLOAD_URL } from '../../config';
+import './AddRecipe.css';
 
 const initialState = {
   author: '',
@@ -234,129 +235,167 @@ class AddRecipe extends React.Component {
       <div className="Comment">
         <div className="comment-form">
           <div className="input-group">
-            <span>Your Name: </span>
-            <input
-              type="text"
-              name="author"
-              value={this.state.author}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div style={{ fontSize: 12, color: 'red' }}>
-            {this.state.authorError}
-          </div>
-          <div className="input-group">
-            <span>Recipe Name: </span>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div style={{ fontSize: 12, color: 'red' }}>
-            {this.state.nameError}
-          </div>
-          <div className="input-group">
-            <span>Image: </span>
-            <input type="file" onChange={this.handleChangeImage} />
-          </div>
-          <div style={{ fontSize: 12, color: 'red' }}>
-            {this.state.imageError}
-          </div>
-          Preparation Difficulty:{' '}
-          <select
-            name="preparation_difficulty"
-            value={this.state.preparation_difficulty}
-            onChange={this.handleChange}
-          >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="advanced">Advanced</option>
-          </select>
-          <div className="input-group">
-            <span>Preparation Time (minutes): </span>
-            <input
-              type="text"
-              name="preparation_time"
-              value={this.state.preparation_time}
-              onChange={this.handleChangeTimeServings}
-            />
-          </div>
-          <div style={{ fontSize: 12, color: 'red' }}>
-            {this.state.prepTimeError}
-          </div>
-          <div className="input-group">
-            <span>Servings: </span>
-            <input
-              type="text"
-              name="servings"
-              value={this.state.servings}
-              onChange={this.handleChangeTimeServings}
-            />
-          </div>
-          <div style={{ fontSize: 12, color: 'red' }}>
-            {this.state.servingsError}
-          </div>
-          <div className="input-group">
-            <span>Ingredients: </span>
-            <input
-              type="text"
-              name="newIngredient"
-              value={this.state.newIngredient}
-              onChange={this.handleChange}
-            />
-            <div style={{ fontSize: 12, color: 'red' }}>
-              {this.state.ingredientsError}
+            <div className="col-25">
+              <span>Your Name: </span>
             </div>
-            <button onClick={this.addIngredient}>ADD INGREDIENT</button>
-            <ListItems
-              items={this.state.ingredients}
-              deleteItem={this.deleteIngredient}
-            />
-          </div>
-          <div className="input-group">
-            <span>Preparation Steps: </span>
-            <input
-              type="text"
-              name="newStep"
-              value={this.state.newStep}
-              onChange={this.handleChange}
-            />
-            <div style={{ fontSize: 12, color: 'red' }}>
-              {this.state.stepsError}
+            <div className="col-75">
+              <input
+                type="text"
+                name="author"
+                value={this.state.author}
+                onChange={this.handleChange}
+              />
+
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.authorError}
+              </div>
             </div>
-            <button onClick={this.addStep}>ADD STEP</button>
-            <ListItems
-              items={this.state.preparation_steps}
-              deleteItem={this.deleteStep}
-            />
           </div>
           <div className="input-group">
-            Dish Type:{' '}
+            <div className="col-25">
+              <span>Recipe Name: </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.nameError}
+              </div>{' '}
+            </div>{' '}
+          </div>
+          <div className="input-group">
+            <div className="col-25">
+              <span>Image: </span>
+            </div>
+            <div className="col-75">
+              <input type="file" onChange={this.handleChangeImage} />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.imageError}
+              </div>
+            </div>
+          </div>
+          <div className="col-25">Preparation Difficulty:</div>
+          <div className="col-75">
             <select
-              name="dish_type"
-              value={this.state.dish_type}
+              name="preparation_difficulty"
+              value={this.state.preparation_difficulty}
               onChange={this.handleChange}
             >
-              <option value="appetizer">Appetizer</option>
-              <option value="main">Main Dish</option>
-              <option value="dessert">Dessert</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="advanced">Advanced</option>
             </select>
           </div>
           <div className="input-group">
-            <span>Tags: </span>
-            <input
-              type="text"
-              value={this.state.newTag}
-              onChange={this.handleChangeTag}
-            />
-            <button onClick={this.addTag}>ADD TAG</button>
-            <ListItems items={this.state.tags} deleteItem={this.deleteTag} />
+            <div className="col-25">
+              <span>Preparation Time (min): </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="preparation_time"
+                value={this.state.preparation_time}
+                onChange={this.handleChangeTimeServings}
+              />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.prepTimeError}
+              </div>{' '}
+            </div>
           </div>
-          <br />
-          <button onClick={this.handlePostRecipe}>Post Recipe</button>
-        </div>
+          <div className="input-group">
+            <div className="col-25">
+              <span>Servings: </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="servings"
+                value={this.state.servings}
+                onChange={this.handleChangeTimeServings}
+              />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.servingsError}
+              </div>{' '}
+            </div>
+          </div>
+          <div className="input-group">
+            <div className="col-25">
+              <span>Ingredients: </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="newIngredient"
+                value={this.state.newIngredient}
+                onChange={this.handleChange}
+              />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.ingredientsError}
+              </div>
+              <button onClick={this.addIngredient}>ADD INGREDIENT</button>
+              <ListItems
+                items={this.state.ingredients}
+                deleteItem={this.deleteIngredient}
+              />
+            </div>
+          </div>
+          <div className="input-group">
+            <div className="col-25">
+              <span>Preparation Steps: </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="newStep"
+                value={this.state.newStep}
+                onChange={this.handleChange}
+              />
+              <div style={{ fontSize: 12, color: 'red' }}>
+                {this.state.stepsError}
+              </div>
+              <button onClick={this.addStep}>ADD STEP</button>
+              <ListItems
+                items={this.state.preparation_steps}
+                deleteItem={this.deleteStep}
+              />
+            </div>
+          </div>
+          <div className="input-group">
+            <div className="col-25">Dish Type: </div>
+            <div className="col-75">
+              <select
+                name="dish_type"
+                value={this.state.dish_type}
+                onChange={this.handleChange}
+              >
+                <option value="appetizer">Appetizer</option>
+                <option value="main">Main Dish</option>
+                <option value="dessert">Dessert</option>
+              </select>
+            </div>
+          </div>
+          <div className="input-group">
+            <div className="col-25">
+              <span>Tags: </span>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                value={this.state.newTag}
+                onChange={this.handleChangeTag}
+              />
+              <br />
+              <button onClick={this.addTag}>ADD TAG</button>
+              <ListItems items={this.state.tags} deleteItem={this.deleteTag} />
+            </div>
+            <br />
+          </div>
+         
+        </div> <button className="postBtn" onClick={this.handlePostRecipe}>POST RECIPE</button>
       </div>
     );
   }
