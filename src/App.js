@@ -18,8 +18,8 @@ class App extends React.Component {
       comments: [],
       search: '',
       addRecipeMode: false,
-      showRecipeFlag: false,
-      currentRecipe: '',
+      showRecipeMode: false,
+      currentRecipeId: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,7 +47,11 @@ class App extends React.Component {
         recipe.name.toLowerCase().includes(filterString) ||
         recipe.tags.includes(filterString),
     );
-    this.setState({ filteredRecipes, addRecipeMode: false });
+    this.setState({
+      filteredRecipes,
+      addRecipeMode: false,
+      showRecipeMode: false,
+    });
   }
 
   handleCategory(event) {
@@ -55,16 +59,19 @@ class App extends React.Component {
     const filteredRecipes = this.state.recipes.filter((recipe) =>
       recipe.dish_type.includes(dishType),
     );
-    this.setState({ filteredRecipes, addRecipeMode: false });
+    this.setState({
+      filteredRecipes,
+      addRecipeMode: false,
+      showRecipeMode: false,
+    });
   }
 
   setAddRecipeMode() {
     this.setState({ addRecipeMode: true });
   }
 
-  showRecipe(idRecipe) {
-    this.setState({ showRecipeFlag: true });
-    this.setState({ currentRecipe: idRecipe });
+  showRecipe(recipeId) {
+    this.setState({ showRecipeMode: true, currentRecipeId: recipeId });
   }
 
   fetchRecipes() {
@@ -75,6 +82,7 @@ class App extends React.Component {
           recipes: data,
           filteredRecipes: data,
           addRecipeMode: false,
+          showRecipeMode: false,
         });
       });
   }
@@ -90,37 +98,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { filteredRecipes, comments, search, addRecipeMode } = this.state;
-
-    const renderRecipes = () => {
-      if (this.state.showRecipeFlag) {
-        return (
-          <div className="searchResult">
-            <Recipe
-              recipe={this.state.currentRecipe}
-              comments={comments}
-              onPostCallback={this.fetchComments}
-            />
-          </div>
-        );
-      } else {
-        return (
-          <div className="searchResult">
-            {filteredRecipes.map((recipe, index) => {
-              return (
-                <div
-                  key={index}
-                  className="recipe"
-                  onClick={() => this.showRecipe(recipe.id)}
-                >
-                  <RecipeTeaser recipe={recipe} />
-                </div>
-              );
-            })}
-          </div>
-        );
-      }
-    };
+    const {
+      filteredRecipes,
+      comments,
+      search,
+      addRecipeMode,
+      showRecipeMode,
+      currentRecipeId,
+    } = this.state;
 
     return (
       <div className="App">
@@ -138,7 +123,31 @@ class App extends React.Component {
             {addRecipeMode ? (
               <AddRecipe onPostCallback={this.fetchRecipes} />
             ) : (
-              { renderRecipes }
+              <div className="searchResult">
+                {showRecipeMode ? (
+                  <Recipe
+                    recipe={filteredRecipes.find(
+                      (recipe) => recipe.id === currentRecipeId,
+                    )}
+                    comments={comments}
+                    onPostCallback={this.fetchComments}
+                  />
+                ) : (
+                  <div>
+                    {filteredRecipes.map((recipe, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="recipe"
+                          onClick={() => this.showRecipe(recipe.id)}
+                        >
+                          <RecipeTeaser recipe={recipe} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </div>

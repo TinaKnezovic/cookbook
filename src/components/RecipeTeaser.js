@@ -17,8 +17,12 @@ class RecipeTeaser extends React.Component {
           Author: {recipe.author} | {moment(recipe.date).format('LLL')}
         </p>
         <div className="imgReceipe">
-          <img src={require(`../images/${recipe.image}`)} 
-          alt="" height="200" width="200" />
+          <img
+            src={require(`../images/${recipe.image}`)}
+            alt=""
+            height="200"
+            width="200"
+          />
         </div>
       </div>
     );
