@@ -394,8 +394,10 @@ class AddRecipe extends React.Component {
             </div>
             <br />
           </div>
-         
-        </div> <button className="postBtn" onClick={this.handlePostRecipe}>POST RECIPE</button>
+        </div>{' '}
+        <button className="postBtn" onClick={this.handlePostRecipe}>
+          POST RECIPE
+        </button>
       </div>
     );
   }

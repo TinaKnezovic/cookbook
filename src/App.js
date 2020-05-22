@@ -4,6 +4,7 @@ import Side from './components/Side';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import AddRecipe from './components/AddRecipeComponents/AddRecipe';
+import RecipeTeaser from './components/RecipeTeaser';
 import Recipe from './components/Recipe';
 import { BASE_URL } from './config';
 import './App.css';
@@ -17,12 +18,15 @@ class App extends React.Component {
       comments: [],
       search: '',
       addRecipeMode: false,
+      showRecipeFlag: false,
+      currentRecipe: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.setAddRecipeMode = this.setAddRecipeMode.bind(this);
+    this.showRecipe = this.showRecipe.bind(this);
     this.fetchRecipes = this.fetchRecipes.bind(this);
     this.fetchComments = this.fetchComments.bind(this);
   }
@@ -58,6 +62,11 @@ class App extends React.Component {
     this.setState({ addRecipeMode: true });
   }
 
+  showRecipe(idRecipe) {
+    this.setState({ showRecipeFlag: true });
+    this.setState({ currentRecipe: idRecipe });
+  }
+
   fetchRecipes() {
     fetch(BASE_URL + 'recipes')
       .then((response) => response.json())
@@ -83,6 +92,36 @@ class App extends React.Component {
   render() {
     const { filteredRecipes, comments, search, addRecipeMode } = this.state;
 
+    const renderRecipes = () => {
+      if (this.state.showRecipeFlag) {
+        return (
+          <div className="searchResult">
+            <Recipe
+              recipe={this.state.currentRecipe}
+              comments={comments}
+              onPostCallback={this.fetchComments}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div className="searchResult">
+            {filteredRecipes.map((recipe, index) => {
+              return (
+                <div
+                  key={index}
+                  className="recipe"
+                  onClick={() => this.showRecipe(recipe.id)}
+                >
+                  <RecipeTeaser recipe={recipe} />
+                </div>
+              );
+            })}
+          </div>
+        );
+      }
+    };
+
     return (
       <div className="App">
         <Header
@@ -99,19 +138,7 @@ class App extends React.Component {
             {addRecipeMode ? (
               <AddRecipe onPostCallback={this.fetchRecipes} />
             ) : (
-              <div className="searchResult">
-                {filteredRecipes.map((recipe, index) => {
-                  return (
-                    <div key={index} className="recipe">
-                      <Recipe
-                        recipe={recipe}
-                        comments={comments}
-                        onPostCallback={this.fetchComments}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+              { renderRecipes }
             )}
           </div>
         </div>
