@@ -11,7 +11,7 @@ class RecipeTeaser extends React.Component {
     const { recipe } = this.props;
 
     return (
-      <div>
+      <div className="teaser">
         <h2>{recipe.name}</h2>
         <p>
           Author: {recipe.author} | {moment(recipe.date).format('LLL')}

@@ -133,7 +133,7 @@ class App extends React.Component {
                     onPostCallback={this.fetchComments}
                   />
                 ) : (
-                  <div>
+                  <div className="row">
                     {filteredRecipes.map((recipe, index) => {
                       return (
                         <div
