@@ -15,16 +15,13 @@ class Recipe extends React.Component {
     const { recipe, comments, onPostCallback } = this.props;
 
     return (
-      <div>
+      <div className="recipe-container">
         <h2>{recipe.name}</h2>
-        <p>
-          Author: {recipe.author} | {moment(recipe.date).format('LLL')}
-        </p>
-        <p align="right">
-          Preparation Difficulty: {recipe.preparation_difficulty}
-        </p>
-        <p align="right">Preparation Time: {recipe.preparation_time}</p>
-        <p align="right">Servings: {recipe.servings}</p>
+        <p>Author: {recipe.author}</p>
+        <p>{moment(recipe.date).format('LLL')}</p>
+        <p>Preparation Difficulty: {recipe.preparation_difficulty}</p>
+        <p>Preparation Time: {recipe.preparation_time} min</p>
+        <p>Servings: {recipe.servings}</p>
         <div className="imgReceipe">
           <img src={require(`../images/${recipe.image}`)} alt="" />
         </div>
@@ -56,6 +53,7 @@ class Recipe extends React.Component {
         <CommentForm recipeId={recipe.id} onPostCallback={onPostCallback} />
         {comments
           .filter((comment) => comment.recipeId === recipe.id)
+          .reverse()
           .map((comment, key) => {
             return <Comment key={key} comment={comment} />;
           })}

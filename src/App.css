@@ -21,20 +21,28 @@ body {
 }
 
 .searchbox input {
-  padding: 6px;
-  border-color: rgb(116, 114, 114);
-  border-radius: 6%;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+  width: 200px;
+  font-size: 12px;
+  padding: 10px;
+  border: 2px solid rgb(65, 83, 65);
 }
 
 .searchbox button {
-  background-color: darkgray;
-  color: black;
-  border-radius: 6%;
-  padding: 0.5%;
+  font-size: 12px;
+  background-color: rgb(65, 83, 65);
+  border: 2px solid rgb(65, 83, 65);
+  color: white;
+  padding: 10px;
+}
+
+.searchbox button:hover {
+  color: #ddd;
   cursor: pointer;
+}
+
+.searchbox input:focus,
+.searchbox button:focus {
+  outline: none;
 }
 
 .navbar {
@@ -59,8 +67,12 @@ body {
 }
 
 .navbar button:hover {
-  color: black;
+  color: #ddd;
   cursor: pointer;
+}
+
+.navbar button:focus {
+  outline: none;
 }
 
 .row {
@@ -84,13 +96,22 @@ body {
 
 .sideButton {
   background-color: rgb(65, 83, 65);
+  border: 2px solid rgb(65, 83, 65);
   color: white;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  width: 50%;
-  padding-bottom: 3%;
-  padding-top: 3%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 170px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.sideButton:hover {
+  color: #ddd;
   cursor: pointer;
+}
+
+.sideButton:focus {
+  outline: none;
 }
 
 .main {
@@ -103,18 +124,23 @@ body {
 .recipe {
   background-color: rgba(236, 232, 232, 0.692);
   border-radius: 3%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 2%;
-  padding-bottom: 4%;
-  margin: 1%;
   height: 400px;
+  margin: 10px;
   width: 450px;
   border-style: outset;
+  cursor: pointer;
 }
 
-.teaser{
-  cursor: pointer;
+.recipe-container {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.recipe-container h4 {
+  text-align: left;
+}
+
+.recipe-container ul {
+  text-align: left;
 }
 
 .mainText {
@@ -124,10 +150,6 @@ body {
   padding-right: 10%;
   padding-top: 2%;
   padding-bottom: 4%;
-}
-
-.recipe ul {
-  list-style-type: none;
 }
 
 .Comment {
@@ -169,11 +191,7 @@ body {
 }
 
 .comment-form button {
-  padding:3px;
-}
-
-.main ul {
-  list-style-type: none;
+  padding: 3px;
 }
 
 .searchText {

@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Side from './components/Side';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import AddRecipe from './components/AddRecipeComponents/AddRecipe';
+import AddRecipe from './components/AddRecipe/AddRecipe';
 import RecipeTeaser from './components/RecipeTeaser';
 import Recipe from './components/Recipe';
 import { BASE_URL } from './config';

@@ -13,9 +13,8 @@ class RecipeTeaser extends React.Component {
     return (
       <div className="teaser">
         <h2>{recipe.name}</h2>
-        <p>
-          Author: {recipe.author} | {moment(recipe.date).format('LLL')}
-        </p>
+        <p>Author: {recipe.author}</p>
+        <p>{moment(recipe.date).format('LLL')}</p>
         <div className="imgReceipe">
           <img
             src={require(`../images/${recipe.image}`)}
